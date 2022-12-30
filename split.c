@@ -1,6 +1,6 @@
 /*
 * File: split.c
-* Prpeared by Thomas Lemba and Angela Oders 
+* Prpeared by Thomas Lemba and Angela Oders
 */
 
 #include "shell.h"
@@ -20,6 +20,7 @@ char **_strtok(char *line, char *delim);
 int token_len(char *str, char *delim)
 {
 	int index = 0, len = 0;
+
 	while (*(str + index) && *(str + index) != *delim)
 	{
 		len++;
@@ -38,6 +39,7 @@ int token_len(char *str, char *delim)
 int count_tokens(char *str, char *delim)
 {
 	int index, tokens = 0, len = 0;
+
 	for (index = 0; *(str + index); index++)
 	len++;
 	for (index = 0; index < len; index++)
@@ -61,6 +63,7 @@ char **_strtok(char *line, char *delim)
 {
 	char **ptr;
 	int index = 0, tokens, t, letters, l;
+
 	tokens = count_tokens(line, delim);
 	if (tokens == 0)
 	return (NULL);

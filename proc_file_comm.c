@@ -2,14 +2,15 @@
 
 int cant_open(char *file_path);
 int proc_file_commands(char *file_path, int *exe_ret);
+
 /**
 * cant_open - If the file doesn't exist or lacks proper permissions, print
 * a cant open error.
 * @file_path: Path to the supposed file.
 * Return 127
 */
-
 int cant_open(char *file_path)
+
 {
 	char *error, *hist_str;
 
@@ -38,7 +39,7 @@ int cant_open(char *file_path)
 }
 
 /**
- proc_file_commands - Takes a file and attempts to run the commands stored
+* proc_file_commands - Takes a file and attempts to run the commands stored
 * within.
 * @file_path: Path to the file.
 * @exe_ret: Return value of the last executed command.
@@ -55,6 +56,7 @@ int proc_file_commands(char *file_path, int *exe_ret)
 	char *line, **args, **front;
 	char buffer[120];
 	int ret;
+
 	hist = 0;
 	file = open(file_path, O_RDONLY);
 	if (file == -1)
@@ -65,8 +67,8 @@ int proc_file_commands(char *file_path, int *exe_ret)
 	line = malloc(sizeof(char) * old_size);
 	if (!line)
 	return (-1);
-	do 
 	{
+		do
 		b_read = read(file, buffer, 119);
 		if (b_read == 0 && line_size == 0)
 		return (*exe_ret);
