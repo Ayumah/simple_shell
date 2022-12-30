@@ -3,18 +3,19 @@
 */
 
 #include "shell.h"
+
 alias_t *add_alias_end(alias_t **head, char *name, char *value);
 void free_alias_list(alias_t *head);
 list_t *add_node_end(list_t **head, char *dir);
 void free_list(list_t *head);
 
 /**
-* add_alias_end - Adds a node to the end of a alias_t linked list.
-* @head: A pointer to the head of the list_t list.
-* @name: The name of the new alias to be added.
-* @value: The value of the new alias to be added.
-* Return: If an error occurs - NULL.
-* Otherwise - a pointer to the new node.
+*add_alias_end - Adds a node to the end of a alias_t linked list.
+*@head: A pointer to the head of the list_t list.
+*@name: The name of the new alias to be added.
+*@value: The value of the new alias to be added.
+*Return: If an error occurs - NULL.
+*Otherwise - a pointer to the new node.
 */
 
 alias_t *add_alias_end(alias_t **head, char *name, char *value)
@@ -29,17 +30,17 @@ alias_t *add_alias_end(alias_t **head, char *name, char *value)
 	new_node->name = malloc(sizeof(char) * (_strlen(name) + 1));
 	if (!new_node->name)
 	{
-		free(new_node);
-		return (NULL);
+	free(new_node);
+	return (NULL);
 	}
 	new_node->value = value;
 	_strcpy(new_node->name, name);
 	if (*head)
 	{
-		last = *head;
-		while (last->next != NULL)
-		last = last->next;
-		last->next = new_node;
+	last = *head;
+	while (last->next != NULL)
+	last = last->next;
+	last->next = new_node;
 	}
 	else
 	*head = new_node;
@@ -65,10 +66,10 @@ list_t *add_node_end(list_t **head, char *dir)
 	new_node->next = NULL;
 	if (*head)
 	{
-		last = *head;
-		while (last->next != NULL)
-		last = last->next;
-		last->next = new_node;
+	last = *head;
+	while (last->next != NULL)
+	last = last->next;
+	last->next = new_node;
 	}
 	else
 	*head = new_node;
@@ -87,11 +88,11 @@ void free_alias_list(alias_t *head)
 
 	while (head)
 	{
-		next = head->next;
-		free(head->name);
-		free(head->value);
-		free(head);
-		head = next;
+	next = head->next;
+	free(head->name);
+	free(head->value);
+	free(head);
+	head = next;
 	}
 }
 
@@ -106,9 +107,9 @@ void free_list(list_t *head)
 
 	while (head)
 	{
-		next = head->next;
-		free(head->dir);
-		free(head);
-		head = next;
+	next = head->next;
+	free(head->dir);
+	free(head);
+	head = next;
 	}
 }
